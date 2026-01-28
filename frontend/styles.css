@@ -1,0 +1,98 @@
+:root {
+    --bg-color: #f4f6f8;
+    --sidebar-width: 260px;
+    --primary-color: #007bff;
+    --text-dark: #333;
+    --text-grey: #888;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: var(--sidebar-width);
+    background: white;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile { display: flex; align-items: center; gap: 15px; margin-bottom: 40px; }
+.avatar { width: 40px; height: 40px; background: #e0f2fe; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0284c7; }
+.user-info h3 { margin: 0; font-size: 16px; }
+.user-info span { font-size: 12px; color: var(--text-grey); }
+
+.menu a {
+    display: flex; align-items: center; padding: 12px;
+    text-decoration: none; color: var(--text-dark);
+    border-radius: 8px; margin-bottom: 5px; font-weight: 500;
+}
+.menu a:hover, .menu a.active { background-color: #f0f9ff; color: var(--primary-color); }
+.menu i { width: 25px; }
+.badge { margin-left: auto; background: #e0f2fe; color: #0284c7; padding: 2px 8px; border-radius: 12px; font-size: 12px; }
+
+.lists { margin-top: 30px; }
+.lists h4 { font-size: 12px; color: var(--text-grey); letter-spacing: 1px; margin-bottom: 15px; }
+.lists ul { list-style: none; padding: 0; }
+.lists li { padding: 10px 0; display: flex; align-items: center; gap: 10px; color: var(--text-dark); }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.blue { background: #3b82f6; } .purple { background: #a855f7; }
+
+.logout-btn { margin-top: auto; border: none; background: none; cursor: pointer; text-align: left; padding: 10px; color: #ef4444; }
+
+/* Main Content */
+.content { flex: 1; padding: 40px; overflow-y: auto; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+h2 { font-size: 24px; margin: 0; }
+
+/* Input Bar */
+.add-task-container {
+    background: white; padding: 15px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; 
+    align-items: center; justify-content: space-between; margin-bottom: 30px;
+}
+.input-group { display: flex; align-items: center; gap: 15px; flex: 1; }
+.input-group input { border: none; font-size: 16px; outline: none; width: 100%; }
+.actions { display: flex; gap: 10px; align-items: center; }
+.desc-input { border: 1px solid #eee; padding: 5px; border-radius: 4px; }
+select, input[type="date"] { padding: 8px; border: 1px solid #eee; border-radius: 6px; background: #f8fafc; }
+.add-btn { background: #10b981; color: white; border: none; width: 35px; height: 35px; border-radius: 6px; cursor: pointer; }
+
+/* Task Cards */
+.task-item {
+    background: white; padding: 20px; border-radius: 12px; margin-bottom: 15px;
+    display: flex; align-items: center; gap: 20px; transition: transform 0.2s;
+    border: 1px solid transparent;
+}
+.task-item:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+/* Custom Radio Button for Complete */
+.check-btn {
+    width: 22px; height: 22px; border: 2px solid #cbd5e1; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; background: none;
+}
+.check-btn.completed { background: #cbd5e1; border-color: #cbd5e1; }
+.check-btn.completed::after { content: '✔'; color: white; font-size: 14px; }
+
+.task-details { flex: 1; }
+.task-title { font-weight: 600; font-size: 16px; margin-bottom: 4px; display: block; }
+.task-desc { color: #64748b; font-size: 14px; display: block; margin-bottom: 8px; }
+.completed-text { text-decoration: line-through; color: #94a3b8; }
+
+.task-meta { display: flex; gap: 15px; font-size: 12px; font-weight: 600; align-items: center; }
+.priority-tag { padding: 4px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.p-High { background: #fee2e2; color: #ef4444; }
+.p-Medium { background: #ffedd5; color: #f97316; }
+.p-Low { background: #dbeafe; color: #3b82f6; }
+
+.date-tag { color: #94a3b8; display: flex; align-items: center; gap: 5px; }
+
+.delete-btn { background: none; border: none; color: #ef4444; cursor: pointer; opacity: 0.5; }
+.delete-btn:hover { opacity: 1; }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskFlow Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="profile">
+            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+            <div class="user-info">
+                <h3 id="user-name-display">Loading...</h3>
+                </div>
+        </div>
+
+        <nav class="menu">
+            <a href="#" id="nav-all" class="active" onclick="setFilter('all')">
+                <i class="fa-regular fa-envelope"></i> All Tasks 
+                <span class="badge" id="count-all">0</span>
+            </a>
+            
+            <a href="#" id="nav-today" onclick="setFilter('today')">
+                <i class="fa-solid fa-calendar-day"></i> Today
+                <span class="badge" id="count-today"></span>
+            </a>
+            
+            <a href="#" id="nav-upcoming" onclick="setFilter('upcoming')">
+                <i class="fa-solid fa-calendar-days"></i> Upcoming
+                <span class="badge" id="count-upcoming"></span>
+            </a>
+            
+            <a href="#" id="nav-important" onclick="setFilter('important')">
+                <i class="fa-solid fa-circle-exclamation"></i> Important
+                <span class="badge" id="count-important"></span>
+            </a>
+            
+            <a href="#" id="nav-completed" onclick="setFilter('completed')">
+                <i class="fa-regular fa-circle-check"></i> Completed
+            </a>
+        </nav>
+
+        <div class="lists">
+            <h4>LISTS</h4>
+            <ul>
+                <li><span class="dot blue"></span> Personal</li>
+                <li><span class="dot purple"></span> Work</li>
+            </ul>
+        </div>
+
+        <button onclick="logout()" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Log out</button>
+    </aside>
+
+    <main class="content">
+        <header>
+            <h2 id="header-title">All Tasks</h2>
+            <div class="date-display">
+                <span id="current-date"></span>
+            </div>
+        </header>
+
+        <div class="add-task-container">
+            <div class="input-group">
+                <i class="fa-solid fa-plus"></i>
+                <input type="text" id="task-title" placeholder="Add a new task...">
+            </div>
+            <div class="actions">
+                <input type="text" id="task-desc" placeholder="Desc" class="desc-input">
+                <select id="task-priority">
+                    <option value="Low">Low</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="High">High</option>
+                </select>
+                <input type="date" id="task-date">
+                <button onclick="addTask()" class="add-btn"><i class="fa-solid fa-arrow-up"></i></button>
+            </div>
+        </div>
+
+        <div id="task-list" class="task-list">
+            </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
